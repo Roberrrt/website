@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BGC Constructii - Transport și Pompare Beton</title>
+    <title>BGC - Transport și Pompare Beton</title>
     <style>
         /* Global Styles */
         :root {
@@ -24,31 +24,15 @@
             margin: 0 auto;
         }
  
-        /* Header with Logo */
+        /* Header with Image */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
                         url('1.jpg');
             background-size: cover;
             color: white;
             padding: 1rem 0 3rem;
             position: relative;
         }
- 
-        .logo-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1rem;
-        }
- 
-        .logo {
-            height: 110px; /* Default size */
-            transition: all 0.3s ease;
-        }
-        .logo:hover {
-            transform: scale(1.05);
-        }
- 
         /* Hero content positioning */
         .hero-content {
             text-align: center;
@@ -60,7 +44,6 @@
             margin-bottom: 1rem;
         }
  
-        /* Rest of your existing CSS remains the same */
         .btn {
             display: inline-block;
             background: var(--primary);
@@ -110,7 +93,7 @@
         /* Mobile responsiveness for logo */
         @media (max-width: 768px) {
             .logo {
-                height: 50px; /* Slightly smaller on mobile */
+                height: 60px; /* Slightly smaller on mobile */
             }
             header h1 {
                 font-size: 2rem;
@@ -119,13 +102,84 @@
     </style>
 </head>
 <body>
-    <!-- Header with Logo -->
-    <header>
-        <div class="logo-container">
-            <!-- Replace with your actual logo file -->
-            <img src="logo.png" alt="BGC Constructii Logo" class="logo">
-        </div>
+    <div class="header-banner">
+  <img src="logo.png" alt="BGC Logo" class="logo">
  
+  <div class="dropdown">
+    <!-- Changed to a clickable div instead of checkbox -->
+    <div class="menu-btn">≡</div>
+    <div class="dropdown-options">
+      <a href="#about">Despre Noi</a>
+      <a href="#services">Servicii</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</div>
+ 
+<style>
+  
+  .header-banner {
+    background: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+ 
+  .logo {
+    height: 120px;
+    width: auto;
+  }
+ 
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+ 
+  .menu-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .dropdown-options {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    min-width: 150px;
+    z-index: 100;
+  }
+ 
+  /* Show dropdown when parent is hovered */
+  .dropdown:hover .dropdown-options {
+    display: block;
+  }
+ 
+  .dropdown-options a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+  }
+ 
+  .dropdown-options a:hover {
+    background: #f5f5f5;
+  }
+</style>
+    <!-- Header with Image -->
+    <header>
         <div class="hero-content">
             <div class="container">
                 <h1>Cu BGC, construcția perfectă devine realitate!</h1>
