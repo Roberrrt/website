@@ -54,10 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!isOpen) parent.classList.add('open');
         });
     });
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.dropdown')) {
         document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-    });
+    }
+});
     // Prevent dropdown from closing when clicking inside
     document.querySelectorAll('.dropdown').forEach(drop => {
         drop.addEventListener('click', function(e) {
