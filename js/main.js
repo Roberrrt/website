@@ -14,14 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeMenuBtn = document.querySelector('.close-menu-btn');
     const body = document.body;
 
-    // Open sidebar menu
+    // Sidebar menu logic
     menuBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         navLinks.classList.add('active');
         body.style.overflow = 'hidden';
     });
 
-    // Close sidebar menu
     closeMenuBtn.addEventListener('click', function() {
         navLinks.classList.remove('active');
         body.style.overflow = '';
@@ -46,7 +45,59 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Dropdown logic (click to open/close, only one at a time)
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const parent = this.parentElement;
+            const isOpen = parent.classList.contains('open');
+            // Close all dropdowns
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+            // Toggle current
+            if (!isOpen) parent.classList.add('open');
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+        }
+    });
+
+    // Prevent dropdown from closing when clicking inside
+    document.querySelectorAll('.dropdown').forEach(drop => {
+        drop.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+
+    // Close dropdown on dropdown item click
+    document.querySelectorAll('.dropdown-content a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+        });
+    });
+
+    // Enhanced smooth scroll with offset for header
+    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                const headerHeight = document.querySelector('.header-banner').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: targetPosition - headerHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
+
 // Form validation and submission
 const contactForm = document.querySelector('#contact-form');
 if (contactForm) {
@@ -98,4 +149,4 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.service-card').forEach(card => {
     observer.observe(card);
-}); 
+});
