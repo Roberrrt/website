@@ -8,47 +8,81 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Enhanced mobile menu handling
-const menuBtn = document.querySelector('.menu-btn');
-const navLinks = document.querySelector('.nav-links');
-const body = document.body;
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const closeMenuBtn = document.querySelector('.close-menu-btn');
+    const body = document.body;
 
-menuBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navLinks.classList.toggle('active');
-    // Prevent body scrolling when menu is open
-    body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (navLinks.classList.contains('active') && 
-        !e.target.closest('.nav-links') && 
-        !e.target.closest('.menu-btn')) {
+    // Open sidebar menu
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.add('active');
+        body.style.overflow = 'hidden';
+    });
+    // Close sidebar menu
+    closeMenuBtn.addEventListener('click', () => {
         navLinks.classList.remove('active');
         body.style.overflow = '';
-    }
-});
-
-// Enhanced smooth scroll with offset for header
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            // Get header height for offset
-            const headerHeight = document.querySelector('.header-banner').offsetHeight;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
-            
-            window.scrollTo({
-                top: targetPosition - headerHeight,
-                behavior: 'smooth'
-            });
-            
-            // Close mobile menu and restore body scroll
+    });
+    // Close menu when clicking outside (mobile)
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('active') &&
+            !e.target.closest('.nav-links') &&
+            !e.target.closest('.menu-btn')) {
             navLinks.classList.remove('active');
             body.style.overflow = '';
         }
+    });
+    // Close menu on menu item click (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 900) {
+                navLinks.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+    });
+
+    // Dropdown logic (click to open/close, only one at a time)
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            const isOpen = parent.classList.contains('open');
+            // Close all dropdowns
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+            // Toggle current
+            if (!isOpen) parent.classList.add('open');
+        });
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
+        }
+    });
+    // Prevent dropdown from closing when clicking inside
+    document.querySelectorAll('.dropdown').forEach(drop => {
+        drop.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+
+    // Enhanced smooth scroll with offset for header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                const headerHeight = document.querySelector('.header-banner').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                window.scrollTo({
+                    top: targetPosition - headerHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
 
