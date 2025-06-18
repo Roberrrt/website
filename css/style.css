@@ -439,6 +439,7 @@ footer {
         padding: 2rem 1.5rem 1.5rem 1.5rem;
         transition: right 0.3s cubic-bezier(.4,0,.2,1);
         overflow-y: auto;
+        /* Hide by default */
     }
     .nav-links.active {
         right: 0;
@@ -509,6 +510,11 @@ footer {
     }
     .nav-links .dropdown.open .dropdown-content {
         display: block;
+    }
+    /* Remove hover-based dropdown logic */
+    .nav-links .dropdown:hover .dropdown-content,
+    .nav-links .dropdown:focus-within .dropdown-content {
+        display: none !important;
     }
 }
 
