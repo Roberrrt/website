@@ -6,7 +6,7 @@ Acesta este site-ul oficial pentru BGC, companie specializată în transport și
 Website-ul prezintă serviciile oferite de BGC, imagini reale cu stația de beton, informații de contact și motive pentru care să ne alegeți.
 
 ## 🔗 Demo
-[Accesează site-ul online (GitHub Pages)](https://YOUR-USERNAME.github.io/bgc-website/)
+[Accesează site-ul online (GitHub Pages)](https://roberrrt.github.io/website/)
 
 ## 📷 Galerie
 Secțiunea "Galerie" conține imagini reale cu stația de beton (14 poze).
