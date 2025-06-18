@@ -61,6 +61,135 @@ body {
     transform: scale(1.05);
 }
 
+/* Dropdown Menu Styles */
+.nav-links {
+    position: relative;
+}
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+.nav-links .dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 180px;
+    box-shadow: var(--shadow);
+    z-index: 1001;
+    border-radius: 6px;
+    margin-top: 8px;
+}
+.nav-links .dropdown.open .dropdown-content {
+    display: block;
+}
+.nav-links .dropdown-content a {
+    color: var(--dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+.nav-links .dropdown-content a:hover {
+    background: var(--primary-light);
+    color: white;
+}
+
+/* Sidebar Mobile Menu */
+@media (max-width: 900px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: var(--shadow);
+        z-index: 2001;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        transition: right 0.3s cubic-bezier(.4,0,.2,1);
+        overflow-y: auto;
+    }
+    .nav-links.active {
+        right: 0;
+    }
+    .menu-btn {
+        display: block;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+        z-index: 2100;
+    }
+    .close-menu-btn {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: var(--primary);
+        cursor: pointer;
+        z-index: 2101;
+    }
+    .nav-links a, .nav-links .dropdown {
+        width: 100%;
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+    }
+    .nav-links .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: #f5f7fa;
+        margin-top: 0.5rem;
+        border-radius: 6px;
+        display: none;
+        width: 100%;
+    }
+    .nav-links .dropdown.open .dropdown-content {
+        display: block;
+    }
+}
+
+/* Desktop Dropdown: open on click, not hover */
+@media (min-width: 901px) {
+    .nav-links {
+        display: flex;
+        align-items: center;
+        position: static;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+    .menu-btn, .close-menu-btn {
+        display: none;
+    }
+    .nav-links .dropdown-content {
+        display: none;
+        position: absolute;
+        background: white;
+        min-width: 180px;
+        box-shadow: var(--shadow);
+        z-index: 1001;
+        border-radius: 6px;
+        margin-top: 8px;
+    }
+    .nav-links .dropdown.open .dropdown-content {
+        display: block;
+    }
+}
+
+/* Remove background dimming */
+.nav-links.active::before {
+    display: none !important;
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -233,84 +362,6 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Mobile Navigation */
-.menu-btn {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 80px; /* Height of the header */
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 1rem;
-        box-shadow: var(--shadow);
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        display: block;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 15px 20px;
-        margin: 5px 0;
-        border-radius: 8px;
-        color: var(--dark);
-        text-decoration: none;
-        transition: var(--transition);
-        font-size: 1.1rem;
-    }
-
-    .nav-links a:hover, 
-    .nav-links a:active {
-        background: var(--light);
-        color: var(--primary);
-    }
-
-    /* Enhanced Menu Button */
-    .menu-btn {
-        width: 44px;
-        height: 44px;
-        padding: 8px;
-        border: none;
-        background: transparent;
-        color: var(--dark);
-        font-size: 1.8rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: var(--transition);
-    }
-
-    .menu-btn:hover {
-        color: var(--primary);
-    }
-
-    /* Add overlay when menu is open */
-    .nav-links.active::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.5);
-        z-index: -1;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-}
-
 /* Social Media Icons */
 .social-links {
     display: flex;
@@ -352,41 +403,6 @@ footer {
     font-size: 1.2rem;
 }
 
-/* Dropdown Menu Styles */
-.nav-links {
-    position: relative;
-}
-.nav-links .dropdown {
-    position: relative;
-    display: inline-block;
-}
-.nav-links .dropdown-content {
-    display: none;
-    position: absolute;
-    background: white;
-    min-width: 180px;
-    box-shadow: var(--shadow);
-    z-index: 1001;
-    border-radius: 6px;
-    margin-top: 8px;
-}
-.nav-links .dropdown:hover .dropdown-content,
-.nav-links .dropdown:focus-within .dropdown-content {
-    display: block;
-}
-.nav-links .dropdown-content a {
-    color: var(--dark);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border-radius: 6px;
-    transition: var(--transition);
-}
-.nav-links .dropdown-content a:hover {
-    background: var(--primary-light);
-    color: white;
-}
-
 /* Gallery Section */
 #gallery {
     padding: 6rem 0;
@@ -421,104 +437,3 @@ footer {
     border-radius: 8px;
     margin-bottom: 0.5rem;
 }
-
-/* Sidebar Mobile Menu */
-@media (max-width: 900px) {
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -320px;
-        width: 300px;
-        height: 100vh;
-        background: #fff;
-        box-shadow: var(--shadow);
-        z-index: 2001;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem 1.5rem 1.5rem 1.5rem;
-        transition: right 0.3s cubic-bezier(.4,0,.2,1);
-        overflow-y: auto;
-        /* Hide by default */
-    }
-    .nav-links.active {
-        right: 0;
-    }
-    .menu-btn {
-        display: block;
-        font-size: 2rem;
-        background: none;
-        border: none;
-        color: var(--primary);
-        cursor: pointer;
-        z-index: 2100;
-    }
-    .close-menu-btn {
-        display: block;
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: none;
-        border: none;
-        font-size: 2rem;
-        color: var(--primary);
-        cursor: pointer;
-        z-index: 2101;
-    }
-    .nav-links a, .nav-links .dropdown {
-        width: 100%;
-        font-size: 1.1rem;
-        margin: 0.5rem 0;
-    }
-    .nav-links .dropdown-content {
-        position: static;
-        box-shadow: none;
-        background: #f5f7fa;
-        margin-top: 0.5rem;
-        border-radius: 6px;
-        display: none;
-        width: 100%;
-    }
-    .nav-links .dropdown.open .dropdown-content {
-        display: block;
-    }
-}
-
-/* Desktop Dropdown: open on click, not hover */
-@media (min-width: 901px) {
-    .nav-links {
-        display: flex;
-        align-items: center;
-        position: static;
-        height: auto;
-        background: none;
-        box-shadow: none;
-        padding: 0;
-    }
-    .menu-btn, .close-menu-btn {
-        display: none;
-    }
-    .nav-links .dropdown-content {
-        display: none;
-        position: absolute;
-        background: white;
-        min-width: 180px;
-        box-shadow: var(--shadow);
-        z-index: 1001;
-        border-radius: 6px;
-        margin-top: 8px;
-    }
-    .nav-links .dropdown.open .dropdown-content {
-        display: block;
-    }
-    /* Remove hover-based dropdown logic */
-    .nav-links .dropdown:hover .dropdown-content,
-    .nav-links .dropdown:focus-within .dropdown-content {
-        display: none !important;
-    }
-}
-
-/* Remove background dimming */
-.nav-links.active::before {
-    display: none !important;
-} 
