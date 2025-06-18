@@ -420,4 +420,99 @@ footer {
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 0.5rem;
+}
+
+/* Sidebar Mobile Menu */
+@media (max-width: 900px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -320px;
+        width: 300px;
+        height: 100vh;
+        background: #fff;
+        box-shadow: var(--shadow);
+        z-index: 2001;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        transition: right 0.3s cubic-bezier(.4,0,.2,1);
+        overflow-y: auto;
+    }
+    .nav-links.active {
+        right: 0;
+    }
+    .menu-btn {
+        display: block;
+        font-size: 2rem;
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+        z-index: 2100;
+    }
+    .close-menu-btn {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: var(--primary);
+        cursor: pointer;
+        z-index: 2101;
+    }
+    .nav-links a, .nav-links .dropdown {
+        width: 100%;
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+    }
+    .nav-links .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: #f5f7fa;
+        margin-top: 0.5rem;
+        border-radius: 6px;
+        display: none;
+        width: 100%;
+    }
+    .nav-links .dropdown.open .dropdown-content {
+        display: block;
+    }
+}
+
+/* Desktop Dropdown: open on click, not hover */
+@media (min-width: 901px) {
+    .nav-links {
+        display: flex;
+        align-items: center;
+        position: static;
+        height: auto;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+    .menu-btn, .close-menu-btn {
+        display: none;
+    }
+    .nav-links .dropdown-content {
+        display: none;
+        position: absolute;
+        background: white;
+        min-width: 180px;
+        box-shadow: var(--shadow);
+        z-index: 1001;
+        border-radius: 6px;
+        margin-top: 8px;
+    }
+    .nav-links .dropdown.open .dropdown-content {
+        display: block;
+    }
+}
+
+/* Remove background dimming */
+.nav-links.active::before {
+    display: none !important;
 } 
