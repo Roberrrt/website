@@ -14,27 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeMenuBtn = document.querySelector('.close-menu-btn');
     const body = document.body;
 
-    // Open sidebar menu
+    // Sidebar menu logic
     menuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         navLinks.classList.add('active');
         body.style.overflow = 'hidden';
     });
-    // Close sidebar menu
     closeMenuBtn.addEventListener('click', () => {
         navLinks.classList.remove('active');
         body.style.overflow = '';
     });
-    // Close menu when clicking outside (mobile)
-    document.addEventListener('click', (e) => {
-        if (navLinks.classList.contains('active') &&
-            !e.target.closest('.nav-links') &&
-            !e.target.closest('.menu-btn')) {
-            navLinks.classList.remove('active');
-            body.style.overflow = '';
-        }
-    });
-    // Close menu on menu item click (mobile)
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 900) {
@@ -43,11 +32,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('active') &&
+            !e.target.closest('.nav-links') &&
+            !e.target.closest('.menu-btn')) {
+            navLinks.classList.remove('active');
+            body.style.overflow = '';
+        }
+    });
 
     // Dropdown logic (click to open/close, only one at a time)
     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             const parent = this.parentElement;
             const isOpen = parent.classList.contains('open');
             // Close all dropdowns
@@ -58,14 +56,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
-        if (!e.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
-        }
+        document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
     });
     // Prevent dropdown from closing when clicking inside
     document.querySelectorAll('.dropdown').forEach(drop => {
         drop.addEventListener('click', function(e) {
             e.stopPropagation();
+        });
+    });
+    // Close dropdown on dropdown item click
+    document.querySelectorAll('.dropdown-content a').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
         });
     });
 
