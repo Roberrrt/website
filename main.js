@@ -76,7 +76,7 @@ if (contactForm) {
         
         // Here you would typically send the form data to your server
         // For now, we'll just show a success message
-        alert('Mulțumim pentru mesaj! Vă vom contacta în curând.');
+        alert('Mulțumim pentru mesaj!');
         contactForm.reset();
     });
 }
