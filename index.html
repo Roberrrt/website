@@ -3,212 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BGC - Transport și Pompare Beton. Servicii profesionale de transport și pompare beton în România.">
     <title>BGC - Transport și Pompare Beton</title>
-    <style>
-        /* Global Styles */
-        :root {
-            --primary: #e74c3c; /* Red accent */
-            --dark: #2c3e50; /* Dark blue */
-            --light: #ecf0f1; /* Light background */
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
- 
-        /* Header with Background Image */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('1.jpg');
-            background-size: cover;
-            color: white;
-            padding: 1rem 0 3rem;
-            position: relative;
-        }
- 
-        .logo-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 1rem;
-        }
- 
-        .logo {
-            height: 120px; /* Default size */
-            transition: all 0.3s ease;
-        }
-        .logo:hover {
-            transform: scale(1.05);
-        }
- 
-        /* Hero content positioning */
-        .hero-content {
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 1rem;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
- 
-        /* Rest of your existing CSS remains the same */
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-        #services {
-            padding: 4rem 0;
-            background: var(--light);
-        }
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .service-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        #contact {
-            padding: 4rem 0;
-        }
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        footer {
-            background: var(--dark);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
- 
-        /* Mobile responsiveness for logo */
-        @media (max-width: 768px) {
-            .logo {
-                height: 50px; /* Slightly smaller on mobile */
-            }
-            header h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
+    <!-- Header -->
+    <header class="header-banner">
+        <div class="container header-content">
+            <a href="#" class="logo-link">
+                <img src="images/logo.png" alt="BGC Logo" class="logo">
+            </a>
+            
+            <button class="menu-btn" aria-label="Toggle Menu">
+                <span>☰</span>
+            </button>
+            
+            <nav class="nav-links">
+                <a href="#about">Despre Noi</a>
+                <a href="#services">Servicii</a>
+                <a href="#why-us">De Ce Noi</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-<div class="header-banner">
-  <img src="logo.png" alt="BGC Logo" class="logo">
- 
-  <div class="dropdown">
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="menu-btn">
-      <span class="menu-icon">≡</span>
-    </label>
- 
-    <div class="dropdown-options">
-      <a href="#about">Despre Noi</a>
-      <a href="#services">Servicii</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</div>
- 
-<style>
-  /* Banner Styles */
-  .header-banner {
-    background: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 100;
-  }
- 
-  .logo {
-    height: 110px;
-    width: auto;
-  }
- 
-  /* Mobile-Friendly Menu Button */
-  .dropdown {
-    position: relative;
-  }
- 
-  #menu-toggle {
-    display: none;
-  }
- 
-  .menu-btn {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background: #e74c3c;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-    user-select: none;
-  }
- 
-  /* Dropdown Menu */
-  .dropdown-options {
-    display: none;
-    position: absolute;
-    right: 0;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-radius: 4px;
-    min-width: 150px;
-    margin-top: 5px;
-  }
- 
-  /* Show menu when checkbox is checked */
-  #menu-toggle:checked ~ .dropdown-options {
-    display: block;
-  }
- 
-  .dropdown-options a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #333;
-  }
- 
-  .dropdown-options a:hover {
-    background: #f5f5f5;
-  }
-</style>
-
-    <!-- Header with background image -->
-    <header>
-        
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="hero-content">
             <div class="container">
                 <h1>Cu BGC, construcția perfectă devine realitate!</h1>
@@ -216,65 +45,148 @@
                 <a href="#contact" class="btn">Contactează-ne</a>
             </div>
         </div>
-    </header>
- 
-    <!-- Rest of your existing HTML remains the same -->
+    </section>
+
+    <!-- Services Section -->
     <section id="services">
         <div class="container">
-            <h2>Serviciile noastre</h2>
+            <div class="section-title">
+                <h2>Serviciile Noastre</h2>
+                <p>Oferim soluții complete pentru nevoile tale de construcție</p>
+            </div>
+            
             <div class="service-grid">
                 <div class="service-card">
-                    <h3>Transport beton</h3>
-                    <p>Automalaxoare 9m³ pentru transport sigur și rapid de beton proaspăt.</p>
+                    <h3>Transport Beton</h3>
+                    <p>Automalaxoare 9m³ pentru transport sigur și rapid de beton proaspăt. Flotă modernă și întreținută regulat pentru livrări la timp.</p>
+                    <ul>
+                        <li>Transport rapid și sigur</li>
+                        <li>Flotă modernă de automalaxoare</li>
+                        <li>Acoperire regională extinsă</li>
+                    </ul>
                 </div>
+                
                 <div class="service-card">
-                    <h3>Pompare beton</h3>
-                    <p>Autopompe cu brațe 36-56m, capacitate de pompare până la 120 metri.</p>
+                    <h3>Pompare Beton</h3>
+                    <p>Autopompe cu brațe 36-56m, capacitate de pompare până la 120 metri. Echipamente de ultimă generație pentru proiecte de orice dimensiune.</p>
+                    <ul>
+                        <li>Autopompe moderne</li>
+                        <li>Brațe 36-56m</li>
+                        <li>Capacitate mare de pompare</li>
+                    </ul>
                 </div>
+                
                 <div class="service-card">
-                    <h3>Tipuri de beton</h3>
+                    <h3>Tipuri de Beton</h3>
+                    <p>Oferim o gamă completă de betoane pentru orice tip de proiect.</p>
                     <ul>
                         <li>Betoane C 8/10 – C 40/50</li>
                         <li>Betoane rutiere BCR</li>
                         <li>Betoane speciale</li>
+                        <li>Betoane hidrotehnice</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
- 
+
+    <!-- Why Us Section -->
     <section id="why-us">
         <div class="container">
-            <h2>De ce să alegi BGC?</h2>
-            <ul>
+            <div class="section-title">
+                <h2>De Ce Să Alegi BGC?</h2>
+                <p>Excelență în fiecare aspect al serviciilor noastre</p>
+            </div>
+            
+            <ul class="why-us-list">
                 <li>Experiență vastă în construcții</li>
-                <li>Stație beton modernă</li>
-                <li>Laborator performant</li>
-                <li>Livrare în condiții optime</li>
-                <li>Garanția calității</li>
+                <li>Stație beton modernă cu tehnologie avansată</li>
+                <li>Laborator performant pentru teste de calitate</li>
+                <li>Livrare în condiții optime și la timp</li>
+                <li>Garanția calității pentru toate serviciile</li>
+                <li>Echipă profesionistă și dedicată</li>
+                <li>Prețuri competitive și transparente</li>
+                <li>Disponibilitate 24/7 pentru proiecte urgente</li>
             </ul>
         </div>
     </section>
- 
+
+    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2>Contact</h2>
-            <form>
-                <input type="text" placeholder="Nume" required>
-                <input type="email" placeholder="Email" required>
-                <input type="tel" placeholder="Telefon">
-                <textarea placeholder="Mesajul tău..." rows="5" required></textarea>
-                <button type="submit" class="btn">Trimite</button>
+            <div class="section-title">
+                <h2>Contactează-ne</h2>
+                <p>Suntem aici să răspundem la toate întrebările tale</p>
+            </div>
+            
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Nume *" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Email *" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" name="phone" class="form-control" placeholder="Telefon">
+                </div>
+                
+                <div class="form-group">
+                    <textarea name="message" class="form-control" rows="5" placeholder="Mesajul tău... *" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Trimite Mesajul</button>
             </form>
-            <p><strong>Email:</strong> contact@bgcconstructii.ro</p>
-            <p><strong>Telefon:</strong> +40 123 456 789</p>
+
+            <div class="contact-info">
+                <div class="info-item">
+                    <h3>Contact Rapid</h3>
+                    <p><strong>Email:</strong> contact@bgcconstructii.ro</p>
+                    <p><strong>Telefon:</strong> +40 123 456 789</p>
+                </div>
+                
+                <div class="info-item">
+                    <h3>Program de Lucru</h3>
+                    <p>Luni - Vineri: 07:00 - 18:00</p>
+                    <p>Sâmbătă: 08:00 - 14:00</p>
+                    <p>* Disponibili 24/7 pentru urgențe</p>
+                </div>
+            </div>
         </div>
     </section>
- 
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 BGC. Toate drepturile rezervate.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Despre BGC</h3>
+                    <p>Suntem specializați în transport și pompare beton, oferind servicii de înaltă calitate pentru proiecte de orice dimensiune.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Rapid</h3>
+                    <p>Email: contact@bgcconstructii.ro</p>
+                    <p>Telefon: +40 123 456 789</p>
+                    <p>Adresă: Strada Constructorilor 123, București</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Program</h3>
+                    <p>Luni - Vineri: 07:00 - 18:00</p>
+                    <p>Sâmbătă: 08:00 - 14:00</p>
+                    <p>Duminică: Închis</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BGC. Toate drepturile rezervate.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
 </body>
-</html>
+</html> 
