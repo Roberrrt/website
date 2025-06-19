@@ -508,4 +508,38 @@ footer a, .footer-section a {
 }
 footer a:hover, .footer-section a:hover {
     color: var(--primary-light) !important;
+}
+
+/* Simple Lightbox Overlay */
+#lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(30,41,59,0.85);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+}
+#lightbox-overlay.active {
+    display: flex;
+}
+#lightbox-img {
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+}
+#lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    z-index: 3100;
+    transition: color 0.2s;
+}
+#lightbox-close:hover {
+    color: var(--primary-light);
 } 
