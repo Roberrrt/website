@@ -33,19 +33,18 @@
             <nav class="nav-links">
                 <button class="close-menu-btn" aria-label="Închide Meniu">&times;</button>
                 <a href="#about">Despre Noi</a>
-                <div class="dropdown">
-                    <a href="#services" class="dropdown-toggle">Servicii <i class="fa fa-caret-down"></i></a>
-                    <div class="dropdown-content">
-                        <a href="#transport">Transport Beton</a>
-                        <a href="#pompare">Pompare Beton</a>
-                        <a href="#tipuri">Tipuri de Beton</a>
-                    </div>
-                </div>
+                <a href="#services">Servicii</a>
                 <a href="#why-us">De Ce Noi</a>
                 <a href="#gallery">Galerie</a>
                 <a href="#contact">Contact</a>
+                <div class="mobile-contact-info">
+                    <div><i class="fa fa-phone"></i> <a href="tel:+40123456789">+40 123 456 789</a></div>
+                    <div><i class="fa fa-map-marker-alt"></i> Râmnicu Vâlcea, Strada Constructorilor 123</div>
+                    <div><i class="fa fa-envelope"></i> <a href="mailto:contact@bgconstructii.ro">contact@bgconstructii.ro</a></div>
+                </div>
             </nav>
         </div>
+        <div class="sidebar-overlay"></div>
     </header>
 
     <!-- Hero Section -->
@@ -55,6 +54,26 @@
                 <h1>Cu BGC, construcția perfectă devine realitate!</h1>
                 <p>Partenerul de încredere pentru proiectele tale de construcție. Experiență vastă și echipamente moderne.</p>
                 <a href="#contact" class="btn">Contactează-ne</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Despre Noi</h2>
+            </div>
+            <div class="about-content" style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+                <div style="flex: 1 1 300px; min-width: 250px;">
+                    <p>Echipa noastră este formată din personal tânăr, dinamic, comunicativ<br>
+                    și cu o vastă experiență în domeniul construcțiilor.</p>
+                </div>
+                <div style="flex: 1 1 300px; min-width: 250px; text-align: center;">
+                    <!-- Team picture placeholder -->
+                    <img src="images/team-placeholder.jpg" alt="Echipa BGC" style="max-width: 320px; width: 100%; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+                    <div style="margin-top: 0.5rem; color: #888; font-size: 0.95rem;">Echipa BGC</div>
+                </div>
             </div>
         </div>
     </section>
@@ -106,7 +125,7 @@
     <section id="why-us">
         <div class="container">
             <div class="section-title">
-                <h2>De ce să alegi BGC?</h2>
+                <h2>De Ce Să Alegi BGC?</h2>
                 <p>Excelență în fiecare aspect al serviciilor noastre</p>
             </div>
             
@@ -181,15 +200,16 @@
             <div class="contact-info">
                 <div class="info-item">
                     <h3>Contact Rapid</h3>
-                    <p><i class="fa fa-envelope"></i> <strong>Email:</strong> contact@bgconstructii.ro</p>
+                    <p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:contact@bgconstructii.ro">contact@bgconstructii.ro</a></p>
                     <p><i class="fa fa-phone"></i> <strong>Telefon:</strong> +40 123 456 789</p>
+                    <p><i class="fa fa-map-marker-alt"></i> <strong>Adresă:</strong> Râmnicu Vâlcea, Strada Constructorilor 123</p>
                 </div>
                 
                 <div class="info-item">
                     <h3>Program de Lucru</h3>
                     <p><i class="fa fa-clock"></i> Luni - Vineri: 08:00 - 18:00</p>
                     <p><i class="fa fa-clock"></i> Sâmbătă: 08:00 - 17:00</p>
-                    <p><i class="fa fa-bolt"></i> * Disponibili 24/7 pentru urgențe</p>
+                    <p><i class="fa fa-times-circle"></i> Duminică: Închis</p>
                 </div>
             </div>
         </div>
@@ -206,7 +226,7 @@
                 
                 <div class="footer-section">
                     <h3>Contact Rapid</h3>
-                    <div class="footer-contact-item"><i class="fa fa-envelope"></i> contact@bgconstructii.ro</div>
+                    <div class="footer-contact-item"><i class="fa fa-envelope"></i> <a href="mailto:contact@bgconstructii.ro">contact@bgconstructii.ro</a></div>
                     <div class="footer-contact-item"><i class="fa fa-phone"></i> +40 123 456 789</div>
                     <div class="footer-contact-item"><i class="fa fa-map-marker-alt"></i> Râmnicu Vâlcea, Strada Constructorilor 123</div>
                 </div>
