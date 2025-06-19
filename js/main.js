@@ -12,27 +12,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuBtn = document.querySelector('.menu-btn');
     const navLinks = document.querySelector('.nav-links');
     const closeMenuBtn = document.querySelector('.close-menu-btn');
+    const sidebarOverlay = document.querySelector('.sidebar-overlay');
     const body = document.body;
 
-    // Sidebar menu logic
+    // Open sidebar menu
     menuBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         navLinks.classList.add('active');
+        sidebarOverlay.classList.add('active');
+        menuBtn.classList.add('hide-when-open');
         body.style.overflow = 'hidden';
     });
 
-    closeMenuBtn.addEventListener('click', function() {
+    // Close sidebar menu
+    function closeSidebar() {
         navLinks.classList.remove('active');
+        sidebarOverlay.classList.remove('active');
+        menuBtn.classList.remove('hide-when-open');
         body.style.overflow = '';
-    });
+    }
+    closeMenuBtn.addEventListener('click', closeSidebar);
+    sidebarOverlay.addEventListener('click', closeSidebar);
 
     // Close menu when clicking outside (mobile)
     document.addEventListener('click', function(e) {
         if (navLinks.classList.contains('active') &&
             !e.target.closest('.nav-links') &&
             !e.target.closest('.menu-btn')) {
-            navLinks.classList.remove('active');
-            body.style.overflow = '';
+            closeSidebar();
         }
     });
 
@@ -40,8 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.nav-links a').forEach(function(link) {
         link.addEventListener('click', function() {
             if (window.innerWidth <= 900) {
-                navLinks.classList.remove('active');
-                body.style.overflow = '';
+                closeSidebar();
             }
         });
     });
@@ -82,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Enhanced smooth scroll with offset for header
-    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
@@ -149,4 +155,4 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.service-card').forEach(card => {
     observer.observe(card);
-});
+}); 
