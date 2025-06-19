@@ -102,6 +102,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Simple Lightbox for Gallery
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+        img.addEventListener('click', function() {
+            lightboxImg.src = this.src;
+            lightboxOverlay.classList.add('active');
+        });
+    });
+    function closeLightbox() {
+        lightboxOverlay.classList.remove('active');
+        lightboxImg.src = '';
+    }
+    lightboxOverlay.addEventListener('click', function(e) {
+        if (e.target === lightboxOverlay || e.target === lightboxClose) {
+            closeLightbox();
+        }
+    });
+    lightboxClose.addEventListener('click', closeLightbox);
 });
 
 // Form validation and submission
