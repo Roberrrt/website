@@ -150,21 +150,21 @@
                 <p>Imagini reale cu stația de beton BGC</p>
             </div>
             <div class="gallery-grid">
-                <!-- 14 image placeholders -->
-                <div class="gallery-item"><img src="images/statie1.jpg" alt="Stație Beton 1"><span>Stație Beton 1</span></div>
-                <div class="gallery-item"><img src="images/statie2.jpg" alt="Stație Beton 2"><span>Stație Beton 2</span></div>
-                <div class="gallery-item"><img src="images/statie3.jpg" alt="Stație Beton 3"><span>Stație Beton 3</span></div>
-                <div class="gallery-item"><img src="images/statie4.jpg" alt="Stație Beton 4"><span>Stație Beton 4</span></div>
-                <div class="gallery-item"><img src="images/statie5.jpg" alt="Stație Beton 5"><span>Stație Beton 5</span></div>
-                <div class="gallery-item"><img src="images/statie6.jpg" alt="Stație Beton 6"><span>Stație Beton 6</span></div>
-                <div class="gallery-item"><img src="images/statie7.jpg" alt="Stație Beton 7"><span>Stație Beton 7</span></div>
-                <div class="gallery-item"><img src="images/statie8.jpg" alt="Stație Beton 8"><span>Stație Beton 8</span></div>
-                <div class="gallery-item"><img src="images/statie9.jpg" alt="Stație Beton 9"><span>Stație Beton 9</span></div>
-                <div class="gallery-item"><img src="images/statie10.jpg" alt="Stație Beton 10"><span>Stație Beton 10</span></div>
-                <div class="gallery-item"><img src="images/statie11.jpg" alt="Stație Beton 11"><span>Stație Beton 11</span></div>
-                <div class="gallery-item"><img src="images/statie12.jpg" alt="Stație Beton 12"><span>Stație Beton 12</span></div>
-                <div class="gallery-item"><img src="images/statie13.jpg" alt="Stație Beton 13"><span>Stație Beton 13</span></div>
-                <div class="gallery-item"><img src="images/statie14.jpg" alt="Stație Beton 14"><span>Stație Beton 14</span></div>
+                <!-- 14 image placeholders, no descriptions -->
+                <div class="gallery-item"><img src="images/statie1.jpg" alt="Stație Beton 1"></div>
+                <div class="gallery-item"><img src="images/statie2.jpg" alt="Stație Beton 2"></div>
+                <div class="gallery-item"><img src="images/statie3.jpg" alt="Stație Beton 3"></div>
+                <div class="gallery-item"><img src="images/statie4.jpg" alt="Stație Beton 4"></div>
+                <div class="gallery-item"><img src="images/statie5.jpg" alt="Stație Beton 5"></div>
+                <div class="gallery-item"><img src="images/statie6.jpg" alt="Stație Beton 6"></div>
+                <div class="gallery-item"><img src="images/statie7.jpg" alt="Stație Beton 7"></div>
+                <div class="gallery-item"><img src="images/statie8.jpg" alt="Stație Beton 8"></div>
+                <div class="gallery-item"><img src="images/statie9.jpg" alt="Stație Beton 9"></div>
+                <div class="gallery-item"><img src="images/statie10.jpg" alt="Stație Beton 10"></div>
+                <div class="gallery-item"><img src="images/statie11.jpg" alt="Stație Beton 11"></div>
+                <div class="gallery-item"><img src="images/statie12.jpg" alt="Stație Beton 12"></div>
+                <div class="gallery-item"><img src="images/statie13.jpg" alt="Stație Beton 13"></div>
+                <div class="gallery-item"><img src="images/statie14.jpg" alt="Stație Beton 14"></div>
             </div>
         </div>
     </section>
@@ -265,5 +265,10 @@
         document.getElementById('cookie-info-bar').style.display = 'none';
     };
     </script>
+    <!-- Simple Lightbox Overlay -->
+    <div id="lightbox-overlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(30,41,59,0.85); z-index:3000; align-items:center; justify-content:center;">
+        <span id="lightbox-close" style="position:absolute; top:30px; right:40px; color:#fff; font-size:2.5rem; cursor:pointer; z-index:3100;">&times;</span>
+        <img id="lightbox-img" src="" alt="Imagine mărită" style="max-width:90vw; max-height:80vh; border-radius:10px; box-shadow:0 4px 32px rgba(0,0,0,0.25);">
+    </div>
 </body>
 </html> 
