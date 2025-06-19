@@ -437,3 +437,11 @@ footer {
     border-radius: 8px;
     margin-bottom: 0.5rem;
 }
+footer a, .footer-section a {
+    color: #fff !important;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+footer a:hover, .footer-section a:hover {
+    color: var(--primary-light) !important;
+}
