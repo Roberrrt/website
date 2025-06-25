@@ -31,8 +31,8 @@ bgc-website/
 3. Pentru publicare online, folosește GitHub Pages.
 
 ## 📞 Contact
-- Email: contact@bgconstructii.ro
-- Telefon: +40 123 456 789
+- Email: office.bgcbuilding@gmail.com
+- Telefon: +40 756 437 350
 
 ## 📝 Licență
 Acest proiect este destinat prezentării companiei BGC. Pentru utilizare comercială, contactează-ne. 
